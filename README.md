@@ -11,7 +11,7 @@ npm install
 npm run start:dev
 ```
 
-#How to schedule the program to run (Arch Linux)
+# How to schedule the program to run (Arch Linux)
 
 Create a run.sh in the root of the project and add
 
