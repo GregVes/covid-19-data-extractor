@@ -45,12 +45,12 @@ ExecStart=path/to/bash/script/bash_script_name.sh
 WantedBy=default.target
 ```
 
-Then, under roo root, run 
+Then, run 
 
 ```
-systemctl enable covid.timer
-systemctl enable covid.service
-systemctl start covid.timer
+sudo systemctl enable covid.timer
+sudo systemctl enable covid.service
+sudo systemctl start covid.timer
 ```
 
 Verify that job is registered with: 
