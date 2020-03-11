@@ -22,7 +22,7 @@ cd /path/to/project/root
 ./node_modules/.bin/babel src --out-dir dist && node ./dist/index.js
 ```
 
-In */etc/systemd/system*, create covid.timer file and add
+In */etc/systemd/system*, create *covid.timer* file and add
 
 [Unit]
 Description=run covid service once a day at 8AM
@@ -32,7 +32,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 
-Still in */etc/systemd/system*, create the corresponding covid.service file and add
+Still in */etc/systemd/system*, create the corresponding *covid.service* file and add
 
 [Unit]
 Description=Run script to launch a node server fetching covid daily report on Github
