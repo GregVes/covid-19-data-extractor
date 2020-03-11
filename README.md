@@ -24,6 +24,7 @@ cd /path/to/project/root
 
 In */etc/systemd/system*, create *covid.timer* file and add
 
+```
 [Unit]
 Description=run covid service once a day at 8AM
 [Timer]
@@ -31,15 +32,18 @@ OnCalendar=*-*-* 08:00:00
 Persistent=true
 [Install]
 WantedBy=timers.target
+```
 
 Still in */etc/systemd/system*, create the corresponding *covid.service* file and add
 
+```
 [Unit]
 Description=Run script to launch a node server fetching covid daily report on Github
 [Service]
 ExecStart=path/to/bash/script/bash_script_name.sh
 [Install]
 WantedBy=default.target
+```
 
 Then, under roo root, run 
 
