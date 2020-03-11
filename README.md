@@ -56,6 +56,6 @@ sudo systemctl start covid.timer
 Verify that job is registered with: 
 
 ```
-systemctl list-timers --all
+sudo systemctl list-timers --all
 ```
 
