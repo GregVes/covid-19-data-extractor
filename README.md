@@ -49,9 +49,9 @@ systemctl enable covid.service
 systemctl start covid.timer
 ```
 
-Verify that job is appears in: 
+Verify that job is registered with: 
 
 ```
-systemct list-timers --all
+systemctl list-timers --all
 ```
 
