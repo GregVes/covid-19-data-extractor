@@ -6,4 +6,4 @@ It fetches the daily* CSV file - featuring the confirmed cases, deaths and recov
 
 *a scheduled job launches the program once a day on my local machine
 
-See [API Server]((https://github.com/GregVes/covid-19-api-server) if you want to retrieve JSON data by country from January 22, 2020.
+See the [API Server](https://github.com/GregVes/covid-19-api-server) if you want to retrieve JSON data by country from January 22, 2020.
