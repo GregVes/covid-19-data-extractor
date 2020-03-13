@@ -19,7 +19,7 @@ extractReport = (url, date) => {
     return StringStream.from(request.get(url))
         .CSVParse()
         .filter(row => {
-            return row[2] !== "Last Update" // skip each table's first row
+            return row[2] !== "Last Update" // skip table's first row
         })
         .map(row => {
             row[2] = date;
@@ -31,7 +31,6 @@ extractReport = (url, date) => {
         });
 }
 
-// get current date and format it 
 let date = new Date();
 date.setDate(date.getDate()-1) // report of the previous day
 date = date.toISOString().split("T")[0];
