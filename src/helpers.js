@@ -1,4 +1,4 @@
-export function formatDate(date) {
+exports.formattedDate = (date) => {
     date = new Date(date);
     const year = date.getFullYear();
 
@@ -10,7 +10,7 @@ export function formatDate(date) {
 
     return month + "-" + day + "-" + year;
 }
-export function getDatesRanges(start, stop) {
+exports.datesRange = (start, stop) => {
     let dates = []
     let dateMove = new Date(start);
     let strDate = start;
@@ -20,4 +20,14 @@ export function getDatesRanges(start, stop) {
         dateMove.setDate(dateMove.getDate()+1);
     };
     return dates;
+}
+exports.reportDto = (row) => {
+    return {
+        province: row[0],
+        country: row[1],
+        reportDate: row[2],
+        cases: row[3],
+        dead: row[4],
+        recovered: row[5]
+    }
 }

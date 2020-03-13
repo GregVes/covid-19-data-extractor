@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node index.js"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,11 @@
   },
   "homepage": "https://github.com/GregVes/covid-19-data-extractor#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2",
     "request": "^2.88.2",
     "scramjet": "^4.28.1"
   },
-  "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.8.7"
-  }
+  "devDependencies": {}
 }
