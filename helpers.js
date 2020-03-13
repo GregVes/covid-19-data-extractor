@@ -1,4 +1,5 @@
-exports.formattedDate = (date) => {
+/* Turn YYYY-MM-DD -> DD-MM-YYYY that is the date format of the csv file to fetch */
+exports.format = (date) => {
     date = new Date(date);
     const year = date.getFullYear();
 
@@ -10,18 +11,7 @@ exports.formattedDate = (date) => {
 
     return month + "-" + day + "-" + year;
 }
-exports.datesRange = (start, stop) => {
-    let dates = []
-    let dateMove = new Date(start);
-    let strDate = start;
-    while (strDate < stop){
-        strDate = dateMove.toISOString().slice(0,10);
-        dates.push(strDate);
-        dateMove.setDate(dateMove.getDate()+1);
-    };
-    return dates;
-}
-exports.reportDto = (row) => {
+exports.toDto = (row) => {
     return {
         province: row[0],
         country: row[1],

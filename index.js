@@ -23,7 +23,7 @@ extractReport = (url, date) => {
         })
         .map(row => {
             row[2] = date;
-            const reportDto = Helpers.reportDto(row);
+            const reportDto = Helpers.toDto(row);
             return reportDto;
         })
         .consume(reportDto => {
@@ -36,4 +36,4 @@ let date = new Date();
 date.setDate(date.getDate()-1) // report of the previous day
 date = date.toISOString().split("T")[0];
 
-extractReport(`${REPORTS_BASE_URL}/${Helpers.formattedDate(date)}.csv`, date);
+extractReport(`${REPORTS_BASE_URL}/${Helpers.format(date)}.csv`, date);
