@@ -1,4 +1,4 @@
-# COVID-19 data extractor
+# COVID-19 Daily Reports Extractor
 
 Simpe Node program to extract daily reports on the COVID-19 from the Johns Hopkins University Center for Systems Science and Engineering's [data repository](https://github.com/CSSEGISandData/COVID-19).
 
