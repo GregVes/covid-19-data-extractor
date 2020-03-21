@@ -13,7 +13,6 @@ exports.format = (date) => {
 }
 exports.toDto = (row) => {
     return {
-        province: row[0],
         country: row[1],
         reportDate: row[2],
         cases: row[3],

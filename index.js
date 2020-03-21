@@ -30,8 +30,3 @@ extractReport = (url, date) => {
             postReport(reportDto);
         });
 }
-
-let date = new Date();
-date.setDate(date.getDate()-1) // report of the previous day
-date = date.toISOString().split("T")[0];
-extractReport(`${REPORTS_BASE_URL}/${Helpers.format(date)}.csv`, date);
