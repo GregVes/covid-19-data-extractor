@@ -4,23 +4,30 @@ let currentDead;
 let currentRecovered;
 let country;
 
-exports.hasKey = (country) => {
-    if (country in cache) {
-        return true;
+class ReportsCache {
+    constructor() {
+        this.cache = {}
     }
-    return false;
+    getCache(){
+        return this.cache;
+    }
+    hasKey(ountry) {
+        return country in cache;
+    }
+    getKeys() {
+        return Object.keys(this.cache);
+    }
+    getValue(key) {
+        return this.cache[key];
+    }
+    addValue(report) {
+        this.cache[report.country] = report;
+    }
+    updateValue(reportDto) {
+        country = reportDto.country
+        cache[country].cases = cache[country].cases + reportDto.cases;
+        cache[country].dead = cache[country].dead + reportDto.dead;
+    }
 }
-exports.getKeys = () => {
-    return Object.keys(cache);
-}
-exports.getValue = (key) => {
-    return cache[key];
-}
-exports.addValue = (reportDto) => {
-    cache[reportDto.country] = reportDto;
-}
-exports.updateValue = (reportDto) => {
-    country = reportDto.country
-    cache[country].cases = cache[country].cases + reportDto.cases;
-    cache[country].dead = cache[country].dead + reportDto.dead;
-}
+
+module.exports = ReportsCache;

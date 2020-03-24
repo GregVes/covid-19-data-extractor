@@ -19,3 +19,9 @@ exports.toDto = (row) => {
         dead: Number(row[8])
     }
 }
+exports.lateReportDate = () => {
+    let date = new Date();
+    date.setDate(date.getDate()-1) // report of the previous day
+    date = date.toISOString().split("T")[0];
+    return date;
+}

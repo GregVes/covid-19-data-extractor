@@ -7,6 +7,8 @@ const request = require("request");
 const REPORTS_BASE_URL = process.env.REPORTS_BASE_URL;
 const API_URL = process.env.API_URL;
 
+const cache = new ReportsCache();
+
 // Send ReportDto object to API server
 post = (reportDto) => {
     axios
@@ -33,26 +35,23 @@ handleExtraction = async (url, date) => {
         .consume(reportDto => {
             //One country can have multiple reports per day if it has provinces.
             // So we merge all reports in one to end up with one ReportDto object per country
-            if (ReportsCache.hasKey(reportDto.country)) {
-                ReportsCache.updateValue(reportDto); // add up cases and dead
+            if (cache.hasKey(reportDto.country)) {
+                cache.updateValue(reportDto); // add up cases and dead
             }
             else {
-                ReportsCache.addValue(reportDto);
+                cache.addValue(reportDto);
             }
         });
 }
-let date = new Date();
-date.setDate(date.getDate()-1) // report of the previous day
-date = date.toISOString().split("T")[0];
-
 async function main() {
+    const date = Helpers.lateReportDate();
     await handleExtraction(`${REPORTS_BASE_URL}/${Helpers.format(date)}.csv`, date);
-    const countries = ReportsCache.getKeys();
+    const countries = cache.getKeys();
     let report
     for (const country of countries) {
-        report = ReportsCache.getValue(country);
-
+        report = cache.getValue(country);
         post(report)
     }
 }
+
 main();
