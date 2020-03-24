@@ -21,6 +21,6 @@ exports.addValue = (reportDto) => {
 }
 exports.updateValue = (reportDto) => {
     country = reportDto.country
-    cache[country].cases += reportDto.cases;
-    cache[country].dead += reportDto.dead;
+    cache[country].cases = cache[country].cases + reportDto.cases;
+    cache[country].dead = cache[country].dead + reportDto.dead;
 }

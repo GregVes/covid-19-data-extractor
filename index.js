@@ -35,9 +35,10 @@ handleExtraction = async (url, date) => {
             // So we merge all reports in one to end up with one ReportDto object per country
             if (ReportsCache.hasKey(reportDto.country)) {
                 ReportsCache.updateValue(reportDto); // add up cases and dead
-                return;
             }
-            ReportsCache.addValue(reportDto);
+            else {
+                ReportsCache.addValue(reportDto);
+            }
         });
 }
 let date = new Date();
