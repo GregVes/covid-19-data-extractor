@@ -51,6 +51,7 @@ async function main() {
     let report
     for (const country of countries) {
         report = ReportsCache.getValue(country);
+
         post(report)
     }
 }
