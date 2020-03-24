@@ -1,33 +1,30 @@
-let cache = {} // key: country name, value: country report
-let currentCases;
-let currentDead;
-let currentRecovered;
-let country;
-
 class ReportsCache {
-    constructor() {
-        this.cache = {}
+    constructor(cache) {
+        this.cache = cache // key: country name, value: country report
     }
     getCache(){
         return this.cache;
     }
-    hasKey(ountry) {
-        return country in cache;
+    hasKey(country) {
+        return country in this.cache;
     }
     getKeys() {
         return Object.keys(this.cache);
     }
     getValue(key) {
-        return this.cache[key];
+        if (this.hasKey(key)) {
+            return this.cache[key];
+        }
+        console.log("No value at this key")
+        return {}
     }
     addValue(report) {
         this.cache[report.country] = report;
     }
     updateValue(reportDto) {
-        country = reportDto.country
-        cache[country].cases = cache[country].cases + reportDto.cases;
-        cache[country].dead = cache[country].dead + reportDto.dead;
+        const country = reportDto.country
+        this.cache[country].cases += reportDto.cases;
+        this.cache[country].dead += reportDto.dead;
     }
 }
-
 module.exports = ReportsCache;

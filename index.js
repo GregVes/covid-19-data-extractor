@@ -7,7 +7,7 @@ const request = require("request");
 const REPORTS_BASE_URL = process.env.REPORTS_BASE_URL;
 const API_URL = process.env.API_URL;
 
-const cache = new ReportsCache();
+const cache = new ReportsCache({});
 
 // Send ReportDto object to API server
 post = (reportDto) => {
@@ -50,7 +50,10 @@ async function main() {
     let report
     for (const country of countries) {
         report = cache.getValue(country);
-        post(report)
+        if (report.country == "US") {
+            console.log(report)
+        }
+        //post(report)
     }
 }
 
