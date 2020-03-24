@@ -50,10 +50,7 @@ async function main() {
     let report
     for (const country of countries) {
         report = cache.getValue(country);
-        if (report.country == "US") {
-            console.log(report)
-        }
-        //post(report)
+        post(report)
     }
 }
 
