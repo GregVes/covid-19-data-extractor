@@ -13,10 +13,9 @@ exports.format = (date) => {
 }
 exports.toDto = (row) => {
     return {
-        country: row[1],
-        reportDate: row[2],
-        cases: row[3],
-        dead: row[4],
-        recovered: row[5]
+        country: row[3],
+        reportDate: row[4],
+        cases: Number(row[7]),
+        dead: Number(row[8])
     }
 }
