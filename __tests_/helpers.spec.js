@@ -1,9 +1,6 @@
 const Helpers = require("../helpers");
 
-
 describe("Helpers function", () => {
-    beforeEach(() => {
-    });
     test("it formats a date to fit COVID-19 CSV file format", () => {
         expect(Helpers.format("2020-03-10")).toEqual("03-10-2020");
     });
